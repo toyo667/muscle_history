@@ -1,2 +1,2 @@
 #!/bin/bash
-pipenv run python ./muscle_history/manage.py runserver
+pipenv run python ./manage.py runserver
