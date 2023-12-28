@@ -1,0 +1,71 @@
+# トレーニング部位
+- model: api.TrainingArea
+  fields:
+    training_area: arm
+    order: 1
+- model: api.TrainingArea
+  fields:
+    training_area: back
+    order: 3
+- model: api.TrainingArea
+  fields:
+    training_area: chest
+    order: 2
+- model: api.TrainingArea
+  fields:
+    training_area: leg
+    order: 4
+- model: api.TrainingArea
+  fields:
+    training_area: abdominal
+    order: 5
+#  ワークアウト時の感想
+- model: api.WorkoutFeeling
+  fields:
+    feel: too_easy
+    order: 1
+- model: api.WorkoutFeeling
+  fields:
+    feel: easy
+    order: 2
+- model: api.WorkoutFeeling
+  fields:
+    feel: normal
+    order: 3
+- model: api.WorkoutFeeling
+  fields:
+    feel: hard
+    order: 4
+- model: api.WorkoutFeeling
+  fields:
+    feel: too_hard
+    order: 5
+- model: api.WorkoutFeeling
+  fields:
+    feel: cannot
+    order: 6
+# ワークアウトセッションのコンディション
+- model: api.Condition
+  fields:
+    feel: best
+    order: 1
+- model: api.Condition
+  fields:
+    feel: better
+    order: 2
+- model: api.Condition
+  fields:
+    feel: normal
+    order: 3
+- model: api.Condition
+  fields:
+    feel: bad
+    order: 4
+- model: api.Condition
+  fields:
+    feel: so_bad
+    order: 5
+- model: api.Condition
+  fields:
+    feel: cannot
+    order: 6
