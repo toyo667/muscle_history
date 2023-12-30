@@ -1,7 +1,7 @@
 from rest_framework import viewsets
-from api.models.training import Workout, WorkoutItem, WorkoutSession
+from workout.models.training import Workout, WorkoutItem, WorkoutSession
 
-from api.serializers.training import WorkoutItemSerializer, WorkoutSerializer, WorkoutSessionSerializer
+from workout.serializers.training import WorkoutItemSerializer, WorkoutSerializer, WorkoutSessionSerializer
 
 
 class WorkoutItemViewSet(viewsets.ModelViewSet):

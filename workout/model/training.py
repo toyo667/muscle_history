@@ -1,6 +1,6 @@
 from uuid import uuid4
 from django.db import models
-from api.models.master import TrainingArea, WorkoutFeeling, Condition
+from workout.models.master import TrainingArea, WorkoutFeeling, Condition
 
 
 class WorkoutItem(models.Model):

@@ -1,7 +1,7 @@
 from dataclasses import field
 from rest_framework import serializers
 
-from api.models.training import Workout, WorkoutItem, WorkoutSession
+from workout.models.training import Workout, WorkoutItem, WorkoutSession
 
 
 class WorkoutItemSerializer(serializers.ModelSerializer):

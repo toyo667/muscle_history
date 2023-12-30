@@ -1,8 +1,8 @@
 from django.contrib import admin
-from api.models.master import WorkoutFeeling, Condition, TrainingArea
+from workout.models.master import WorkoutFeeling, Condition, TrainingArea
 
 from django.contrib.auth.admin import UserAdmin
-from api.models.training import Workout, WorkoutItem, WorkoutSession
+from workout.models.training import Workout, WorkoutItem, WorkoutSession
 
 # Register your models here.
 admin.site.register(TrainingArea)
