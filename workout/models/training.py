@@ -9,7 +9,7 @@ class WorkoutItem(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     training_name = models.CharField(verbose_name="トレーニング種目", max_length=64)
-    category = models.ForeignKey(TrainingArea, on_delete=models.CASCADE)
+    category = models.ManyToManyField(TrainingArea)
 
 
 class WorkoutSession(models.Model):
