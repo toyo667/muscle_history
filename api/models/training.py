@@ -24,7 +24,7 @@ class WorkoutSession(models.Model):
 
 class Workout(models.Model):
     class Meta:
-        verbose_name = "トレーニング"
+        verbose_name = "ワークアウト"
         ordering = ["-trained_at"]
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
