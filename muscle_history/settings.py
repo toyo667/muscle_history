@@ -11,20 +11,23 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-from muscle_history.local_settings import SECRET_KEY as LOCAL_SECRET
+import environ
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# load settings from .env
+# referred article: https://qiita.com/Bashi50/items/d5bc47eeb9668304aaa2
+env = environ.Env()
+env.read_env(os.path.join(BASE_DIR, ".env"))
+SECRET_KEY = env("SECRET_KEY")
+DEBUG = env("DEBUG")
+ENV = env("ENV")  # local or product
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = LOCAL_SECRET
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -76,7 +79,7 @@ WSGI_APPLICATION = "muscle_history.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
+DATABASES = {"default": env.db()}
 
 
 # Password validation
