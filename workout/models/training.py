@@ -1,5 +1,6 @@
 from uuid import uuid4
 from django.db import models
+from auth_api.models import User
 from workout.models.master import TrainingArea, WorkoutFeeling, Condition
 
 
@@ -11,6 +12,8 @@ class WorkoutItem(models.Model):
     training_name = models.CharField(verbose_name="トレーニング種目", max_length=64)
     category = models.ManyToManyField(TrainingArea)
 
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 class WorkoutSession(models.Model):
     class Meta:
@@ -20,6 +23,8 @@ class WorkoutSession(models.Model):
     started_at = models.DateTimeField(verbose_name="トレーニング開始日時", auto_now_add=True)
     finished_at = models.DateTimeField(verbose_name="トレーニング終了日時", null=True)
     condition = models.ForeignKey(Condition, on_delete=models.CASCADE)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Workout(models.Model):
@@ -37,3 +42,5 @@ class Workout(models.Model):
     weight_kg = models.FloatField(verbose_name="重さ(kg)")
 
     trained_at = models.DateTimeField(verbose_name="トレーニング日時", auto_now_add=True)
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

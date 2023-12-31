@@ -9,6 +9,9 @@ djangorestframework = "*"
 pyyaml = "*"
 django-environ = "*"
 dj-database-url = "*"
+pip = "*"
+install = "*"
+uritemplate = "*"
 
 [dev-packages]
 

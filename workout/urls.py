@@ -8,4 +8,4 @@ v1_router.register(r"workout-item", WorkoutItemViewSet, basename="workout-item")
 v1_router.register(r"workout-session", WorkoutSessionViewSet, basename="workout-session")
 v1_router.register(r"workout", WorkoutViewSet, basename="workout")
 
-urlpatterns = [path("v1/", include(v1_router.urls))]
+urlpatterns = [path("", include(v1_router.urls))]

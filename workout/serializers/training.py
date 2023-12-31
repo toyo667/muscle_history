@@ -7,16 +7,16 @@ from workout.models.training import Workout, WorkoutItem, WorkoutSession
 class WorkoutItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkoutItem
-        fields = "__all__"
+        fields = ["id", "training_name", "category"]
 
 
 class WorkoutSessionSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkoutSession
-        fields = "__all__"
+        fields = ["id", "started_at", "finished_at", "condition"]
 
 
 class WorkoutSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workout
-        fields = "__all__"
+        fields = ["id", "training_item", "feeling", "session", "rep_count", "set_count", "weight_kg", "trained_at"]
