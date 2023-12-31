@@ -12,6 +12,7 @@ dj-database-url = "*"
 pip = "*"
 install = "*"
 uritemplate = "*"
+drf-spectacular = "*"
 
 [dev-packages]
 

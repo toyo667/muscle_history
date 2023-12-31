@@ -18,17 +18,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.schemas import get_schema_view
 from django.views.generic import TemplateView
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     # api/v1
     path("api/v1/", include("workout.urls")),
     path("api/v1/", include("auth_api.urls")),
-    # APIスキーマ関連
-    path("schema/", get_schema_view(title="任意", description="任意"), name="openapi-schema"),
-    path(
-        "docs/",
-        TemplateView.as_view(template_name="swagger-ui.html", extra_context={"schema_url": "openapi-schema"}),
-        name="swagger-ui",
-    ),
+    # schema
+    path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("api/schema/swagger-ui/", SpectacularSwaggerView.as_view(url_name="schema"), name="swagger-ui"),
+    path("api/schema/redoc/", SpectacularRedocView.as_view(url_name="schema"), name="redoc"),
 ]
