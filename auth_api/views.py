@@ -4,7 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from auth_api.models import User
 
-from drf_spectacular.utils import extend_schema, OpenApiParameter
+from drf_spectacular.utils import extend_schema
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -27,6 +27,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
 
+@extend_schema(tags=["authenticate"])
 class UserViewSet(viewsets.ViewSet):
     @extend_schema(responses=UserSerializer)
     @extend_schema(description="セッションからユーザ情報を取得する。", methods=["GET"])
