@@ -32,9 +32,10 @@ class UserViewSet(viewsets.ViewSet):
     @extend_schema(description="セッションからユーザ情報を取得する。", methods=["GET"])
     @action(detail=False, methods=["get"])
     def get_info(self, request):
-        user = self.request.user.__dict__["_wrapped"].__dict__
-        user.pop("_state")
-        if user:
-            return Response(user)
-        else:
+        wrapped_user = self.request.user.__dict__.get("_wrapped")
+        if not wrapped_user:
             return Response({})
+
+        user = wrapped_user.__dict__
+        user.pop("_state")
+        return Response(user)

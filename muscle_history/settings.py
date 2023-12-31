@@ -26,6 +26,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = env("DEBUG") == "True"
 ENV = env("ENV")  # local or product
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
