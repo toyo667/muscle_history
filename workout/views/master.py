@@ -7,19 +7,19 @@ from drf_spectacular.utils import extend_schema
 class TrainingAreaSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainingArea
-        fields = ("training_area", "order")
+        fields = ("id", "training_area", "order")
 
 
 class WorkoutFeelingSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkoutFeeling
-        fields = ("feel", "order")
+        fields = ("id", "feel", "order")
 
 
 class ConditionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Condition
-        fields = ("feel", "order")
+        fields = ("id", "feel", "order")
 
 
 @extend_schema(tags=["master"])
