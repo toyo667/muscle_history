@@ -8,6 +8,9 @@ class WorkoutItem(models.Model):
     class Meta:
         verbose_name = "トレーニング種目"
 
+    def __str__(self) -> str:
+        return self.training_name
+
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     training_name = models.CharField(verbose_name="トレーニング種目", max_length=64)
     category = models.ManyToManyField(TrainingArea)
