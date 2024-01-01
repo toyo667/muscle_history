@@ -16,6 +16,7 @@ class TrainingArea(models.Model):
     TRAIN_BACK = "back"
     TRAIN_CHEST = "chest"
     TRAIN_LEG = "leg"
+    TRAIN_SHOULDER = "shoulder"
     TRAIN_ABDOMINAL = "abdominal"
 
     TRAINING_AREAS = (
@@ -23,6 +24,7 @@ class TrainingArea(models.Model):
         (TRAIN_BACK, _("背中")),
         (TRAIN_CHEST, _("胸")),
         (TRAIN_LEG, _("脚")),
+        (TRAIN_SHOULDER, _("肩")),
         (TRAIN_ABDOMINAL, _("腹")),
     )
 
