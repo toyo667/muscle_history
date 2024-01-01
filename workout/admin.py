@@ -11,4 +11,10 @@ admin.site.register(Condition)
 
 admin.site.register(WorkoutItem)
 admin.site.register(WorkoutSession)
-admin.site.register(Workout)
+
+
+class WorkoutAdmin(admin.ModelAdmin):
+    list_display = ["training_item", "id", "weight_kg", "rep_count", "set_count", "feeling"]
+
+
+admin.site.register(Workout, WorkoutAdmin)
