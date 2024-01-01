@@ -23,6 +23,9 @@ class WorkoutSerializer(serializers.ModelSerializer):
         fields = ["id", "training_item", "feeling", "session", "rep_count", "set_count", "weight_kg", "trained_at"]
 
 
-class RecentWorkoutParamSerializer(serializers.Serializer):
+class BestWorkoutParamSerializer(serializers.Serializer):
     training_item = serializers.UUIDField()
+
+
+class RecentWorkoutParamSerializer(BestWorkoutParamSerializer):
     session = serializers.UUIDField(required=False)
