@@ -7,6 +7,9 @@ from rest_framework.decorators import action
 from rest_framework import status
 from drf_spectacular.utils import extend_schema
 from rest_framework.response import Response
+from django_filters import rest_framework as filters
+
+import django_filters.rest_framework
 
 
 @extend_schema(tags=["workout-item"])
@@ -63,6 +66,8 @@ class WorkoutViewSet(viewsets.ModelViewSet):
 
     serializer_class = WorkoutSerializer
     queryset = Workout.objects.none()
+    filter_backends = [django_filters.rest_framework.DjangoFilterBackend]
+    filterset_fields = ["session"]
 
     def get_queryset(self):
         return Workout.objects.filter(user=self.request.user)
