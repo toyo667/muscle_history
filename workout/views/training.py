@@ -123,7 +123,7 @@ class WorkoutViewSet(viewsets.ModelViewSet):
         for max in max_weights:
             record = self.get_serializer(
                 base_query.filter(training_item=training_item, rep_count=max["rep_count"], weight_kg=max["max_weight"])
-                .order_by("-trained_at")
+                .order_by("-trained_at", "feeling__order")
                 .first()
             ).data
             records.append(record)
